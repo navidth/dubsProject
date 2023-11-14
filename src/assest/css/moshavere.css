@@ -1,0 +1,319 @@
+*{
+  box-sizing:border-box;
+  margin:0px;
+  direction: rtl;
+  font-family: sans;
+}
+.card{
+    width: 350px;
+    height: auto;
+  }
+  .card p {
+    margin: 0px 10px;
+  }
+  .collectionProduct{
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  .productcard{
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 12px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    cursor: pointer;
+    transition:transform 100ms ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  .productcard:hover{
+    transform: translate(0px,-8px);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 10px 0px;
+  }
+  .description-pro{
+    margin-right: 35px;
+    margin-left: 20px;
+    letter-spacing:0.08mm;
+    line-height: 2cm;
+  }
+  .PricePRO{
+    text-align: center;
+  }
+  .img-card{
+    margin-top: 10px;
+  }
+  .card-img{
+    width: 120px;
+  }
+  .item-result:hover {
+    font-weight: bolder;
+  }
+  .nameProduct{
+    text-align: center;
+   }
+   .pagination{
+    direction:rtl;
+   }
+  .bi-telegram,.bi-telephone-fill{
+    margin-right: 10px;
+    padding-bottom: 10px;
+    transition:transform 0.4s ease;
+  }
+  .bi-telephone-fill{
+    color: rgba(8, 64, 8, 0.784);
+    transform: rotate(270deg);
+  }
+  .bi-telephone-fill:hover{
+    animation: rotate 0.2s infinite linear;
+  }
+  @keyframes rotate{
+    from{
+      transform: rotate(270deg);
+    }
+    to{
+      transform: rotate(250deg)
+    }
+  }
+  .bi-telegram:hover{
+    transform: translateY(-8px);
+  }
+  .directionrtl{
+    direction: rtl;
+  }
+  .slider{
+    border: 1px solid rgba(214, 196, 196, 0.5);
+    border-radius:16px;
+    width: 100%;
+    height:5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .slider .thumb{
+    background-color: var(--bs-dark);
+    height: 20px;
+    width: 20px;
+    cursor: grab;
+    border-radius: 50%;
+    border: 2px solid var(--bs-dark);
+    transform: translate(0px,-10px);
+  }
+  .track-0{
+    background-color: black;
+    color: rgb(0, 0, 0);
+    height: 100%;
+  }
+  .price-box{
+    border: 2px solid rgba(0,0,0,.1);
+    padding: 10px 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+.f-mini{
+  font-size: 0.9rem;
+    }
+    .fww{
+      font-family: sans;
+      font-size: 1.5rem;
+    }
+    .font-size-small{
+      font-size: small;
+      font-weight:bold;
+      letter-spacing: 0.25px;
+  
+    }
+    .card-prudoct{
+      width: 55vw;
+    }   
+    .container-sort{
+      width:inherit;
+    }
+    .btn-sort{
+      background-color: inherit;
+      border:0px solid;
+    }
+    .btn-sort-by{
+      border: 0;
+      width:auto;
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+    .btn-sort-by:hover{
+      background-color: var(--bs-dark);
+      color: var(--bs-light);
+      font-weight: 800;
+    }
+    /*..................... laptop sm................................................ */
+    @media screen and (max-width:1024.5px){
+      .productcard{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    /*..................... tablet Large............................................ */
+    @media screen and (max-width:926px) {
+      .card{
+        width: 250px;
+      }
+      .card p {
+        margin: 0px 5px;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      .productcard{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .card-prudoct{
+        position: relative;
+        left: 15px;
+    } 
+    }
+    /*...........................tablet .................................................. */
+    @media screen and (max-width: 767.5px){
+      .card{
+          width: 450px;
+          height: max-content;
+        }
+        .card p {
+          margin: 0px 5px;
+          font-size: 1.2rem;
+          text-align: center;
+        }
+      .article{
+          display:none;
+        }
+        .f-mini{
+          font-size: 0.8rem;
+        }
+        .icon-mini{
+          font-size: 1rem;
+          opacity: 0.7;
+        }
+      .card-prudoct{
+          margin:-30px;
+          width: 86vw;
+          left: 15px;
+      } 
+      .card-product h1{
+        font-size: x-large;
+      }
+     .mobile-fliter{
+      justify-content: space-around;
+     }
+      .price-box{
+        border: 2px solid rgba(0,0,0,.1);
+        padding: 10px 10px;
+        border-radius: 5px;
+        width: 100%;
+    }
+    .btn-sort-by{
+      border: 0;
+      width:auto;
+      padding: 10px;
+      font-size: 0.8rem;
+    }
+.actived{
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+}
+}
+/*..................... phone xl  ............................................ */
+    @media screen and (max-width: 600px){
+    .item-sort{
+      font-size: 0.9rem;
+    }
+    .category-resualt{
+      font-size: 0.9rem;
+      margin-right: 48px;
+     }
+     .card{
+      width: 480px;
+     }
+  }
+  /*..................... phone Large  ............................................ */
+    @media screen and (max-width: 430px){
+    .mobile-fliter{
+      width:350px;
+    }
+    .card{
+      width: 350px;
+      margin-left: 20px;
+     }
+    .category-resualt{
+      font-size: 0.7rem;
+      margin-right:0px;
+     }
+     .toman{
+      margin: 0px 10px;
+     }
+     .collectionProduct{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+     .productcard{
+      margin-left: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: unset;
+      justify-content: center;
+      width: auto;
+      height: 160px;
+     }
+     .nameProduct, .PricePRO{
+      text-align: center;
+      margin-bottom: -15px;
+     }
+  }
+  /*..................... phone md ............................................ */
+    @media screen and (max-width: 380px){
+    .mobile-fliter{
+      width:300px;
+    }
+    .card{
+      width: 300px;
+     }
+    .category-resualt{
+      font-size: 0.7rem;
+      margin-right:0px;
+     }
+
+     .toman{
+      margin: 0px 10px;
+     }
+  }
+  /*..................... phone sm............................................ */
+    @media screen and (max-width: 330px){
+    .item-sort{
+      font-size: 1rem;
+    }
+    .category-resualt{
+      font-size: 0.6rem;
+      margin-right:0px;
+     }
+     .mobile-fliter{
+      width:250px;
+    }
+     .card{
+      width: 250px;
+     }
+     .toman{
+      margin: 0px 10px;
+     }
+     .card-prudoct{
+      width: 80vw;
+  }
+  .productcard{
+    margin-left: 10px;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  }
