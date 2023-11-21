@@ -1,7 +1,9 @@
 import React from 'react';
+import '../../assest/css/register.css';
+import Register from '../../components/register';
 const Login =()=>{
-    return(
-        <h1>Loginnnnn</h1>
-    )
+	return(
+		<Register></Register>
+	)
 }
 export default Login;

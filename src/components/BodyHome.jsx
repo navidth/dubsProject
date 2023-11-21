@@ -8,7 +8,9 @@ import soeesgewo from '../assest/images/slideshow/soessgewo.jpg';
 import cleaner from '../assest/images/slideshow/cleaner.jpg';
 import Table from '../assest/images/dcd479810e3d4487995d4e705dd1d6e9.jpg';
 import { Link } from "react-router-dom";
+
 const Bodyhome =() =>{
+  
     return(
         <React.Fragment>
  {/* <!-...................- top container -..........-> */}
@@ -28,10 +30,10 @@ const Bodyhome =() =>{
   </div>
 </div>
       {/* <!--................... main container --..........> */}
-  <main className="container">
+      <main className="container">
     <section className="my-5 px-3 px-lg-5">
       <header className="headline">
-        <h2 className="fw-bold">هایلایت ها </h2>
+        <h2 className="fw-bold" >هایلایت ها</h2>
       </header>
     </section>
     {/* <!-....................-slide ..................................--> */}
