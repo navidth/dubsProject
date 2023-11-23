@@ -1,6 +1,10 @@
 .form-page{
   margin: 20px auto;
-   width: 50%;
+  width: 50%;
+}
+.form-page-div1{
+  width: 75%;
+  margin: 0px auto;
 }
 .header-form{
   width:100%;
@@ -43,4 +47,35 @@ button[type='submit']:hover{
   background-color: #861313;
   color: #f8f9fa;
   width: 60%;
+}
+.form-content input{
+   padding: 10px 20px;
+}
+.form-content input:focus{
+    color: #000000;
+    border-color:var(--bs-danger);
+    outline: 0;
+    box-shadow: inset 0 0 0.08rem #dc3545;
+}
+.alert{
+  font-size: 12px;
+  list-style: disc;
+  
+}
+@media screen and (max-width:900px) {
+  .form-page{
+    margin: 20px auto;
+    width: 100%;
+  }
+  
+}
+@media screen and (max-width:600px) {
+   .form-page-div1{
+    width: 85%;
+   }
+}
+@media screen and (max-width:425.5px) {
+   .form-page-div1{
+    width: 90%;
+   }
 }
