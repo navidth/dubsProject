@@ -26,6 +26,7 @@ import Shoes from './pages/clothings & shoes/Shoes';
 import TonicWomen from './pages/clothings & shoes/TonicWomen';
 import OthersClothings from './pages/clothings & shoes/OthersClothings';
 import Accessory from './pages/Accessory';
+import DetailPro from './pages/DetailPro';
 
 function App () {
   const [isLoading,setIsLoading] = useState(true);
@@ -81,6 +82,7 @@ function App () {
 
           <Route path='/accessories' element={<Accessory/>}></Route>
           
+          <Route path='/test' element = {<DetailPro/>}></Route>
         </Routes>
         <Footer />
       </Router>

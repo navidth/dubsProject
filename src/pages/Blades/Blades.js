@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { posts,ItemMenu,itemNamesBlades } from '../../components/Data.js';
 import Moshavere from '../../components/moshavere';
 import PriceRange from '../../components/PriceBox';
-import Resultcat from '../../components/Results category.jsx';
+import Resultcat from '../../components/ResultsCategory';
 import Header from '../../components/Header';
 import Sortby from '../../components/Sortby.jsx';
 import CardProduct from '../../components/cardProduct.jsx';
@@ -32,7 +32,7 @@ const Blades =()=>{
         </ArticleFilter>
         {/* .................Section Main Product.......... */}
         <SectionAllPrudoct>
-         <Header pageName="همه چوب راکت ها" pageFather={ItemMenu[0]}></Header>
+         <Header pageName="همه چوب راکت ها" pageNameTwo='همه چوب راکت ها' pageFather={ItemMenu[0]}></Header>
          <Sortby></Sortby>
          <SectionProduct>
             <CardProduct Item={currentPost}></CardProduct>

@@ -1,7 +1,6 @@
-import { AiFillFilter} from "react-icons/ai";
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
-import Slider from 'react-slider';
+import React from 'react';
+
 const Filtermobile = ()=>{
     return(
 <div className="category-resualt mx-5 d-md-none d-block font-size-small">

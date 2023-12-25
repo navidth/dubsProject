@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { posts,ItemMenu,Clothings_Shoes } from '../../components/Data.js';
 import Moshavere from '../../components/moshavere';
 import PriceRange from '../../components/PriceBox';
-import Resultcat from '../../components/Results category.jsx';
+import Resultcat from '../../components/ResultsCategory';
 import Header from '../../components/Header';
 import Sortby from '../../components/Sortby.jsx';
 import CardProduct from '../../components/cardProduct.jsx';

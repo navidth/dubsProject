@@ -6,7 +6,7 @@ import{Link} from 'react-router-dom';
 const Footer =()=>{
 return(
     <footer class="footer px-4 bg-dark text-light shadownavbar w3-animate-opacity">
-      <div class="w-full h-full d-flex align-item-flex-start flex-column flex-md-row py-3 justify-content-around a-line">
+      <div class="w-full d-flex align-item-flex-start flex-column flex-md-row py-3 justify-content-around a-line">
      {/* ......................راه های ارتباطی ............... */}
       <div class="d-flex flex-column mx-4 mx-md-0">
           <div class="container-md mb-3">

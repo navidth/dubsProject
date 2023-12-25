@@ -6,7 +6,7 @@ export const itemNamesBlades = [
     { url: '/blades/butterfly', name: 'چوب راکت باترفلای' },
     { url: '/blades/gewo',      name: 'چوب راکت جوو' },
     { url: '/blades/donic',     name: 'چوب راکت دونیک' },
-    { url: '/blades/others',     name: 'سایر برند ها' }
+    { url: '/blades/others',    name: 'سایر برند ها' }
   ];
   
   export const itemNamesRubbers = [
@@ -33,7 +33,7 @@ export const itemNamesBlades = [
     {price:45, name:"timoboll alc", Image:timobollIMG},
     {price:455, name:"zhang jike zlc", Image:viscariaIMG},
     {price:12, name:"gergely t-5000", Image:timobollIMG},
-    {price:41, name:"fan zhendong super-alc", Image:viscariaIMG},
+    {price:41, name:"fan zhendong alc", Image:viscariaIMG},
     {price:57, name:"harimato alc" , Image:timobollIMG},
     {price:12455, name:"feritas alc", Image:viscariaIMG},
     {price:45, name:"primorac carbon", Image:timobollIMG},

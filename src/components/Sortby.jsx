@@ -1,7 +1,6 @@
 import { BiSortDown } from "react-icons/bi";
 import { AiFillFilter} from "react-icons/ai";
 import React, { useState } from 'react';
-import Resultcat from "./Results category";
 import PriceRange from "./PriceBox";
 import { sort } from "./Data";
 const Sortby = () =>{
@@ -39,12 +38,11 @@ const Sortby = () =>{
         </div>
         </div>
         <div className="category-resualt d-md-none d-block">
-        <button className="btn button-filter" onClick={handleFilter}> <label htmlFor="button-filter">دسته بندی </label><AiFillFilter size={"25px"}></AiFillFilter></button>
+        <button className="btn button-filter" onClick={handleFilter}> <label htmlFor="button-filter">فیلتر</label><AiFillFilter size={"25px"}></AiFillFilter></button>
         </div>
     </div>
     <div className="d-flex flex-column justify-content-center align-items-center ms-2">
-   {useComponent && <PriceRange></PriceRange>}{ useComponent && <Resultcat/>}
-    
+   {useComponent && <PriceRange></PriceRange>}
     </div>
         </div>
     )

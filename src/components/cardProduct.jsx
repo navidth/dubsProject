@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const CardProduct = ({Item}) => {
 return(
 <React.Fragment>
@@ -10,7 +11,8 @@ return(
           className="collectionProduct mt-4"
           key={index}
         >
-          <div className="productcard rounded-3 w3-white">
+          <Link to='/test'>
+           <div className="productcard rounded-3 w3-white">
             <div className="img-card">
               <img src={post.Image} className="card-img" alt={post.name} />
             </div>
@@ -23,9 +25,12 @@ return(
                 <span className="opacity-75">تومان</span>
               </div>
             </div>
-          </div>
+           </div>
+          </Link>
+          
           {Item[index + 1] && (
-          <div className="productcard rounded-3 w3-white">
+          <Link to='/test'>
+            <div className="productcard rounded-3 w3-white">
               <div className="img-card">
                 <img
                   src={Item[index + 1].Image}
@@ -47,6 +52,7 @@ return(
                 </div>
               </div>
             </div>
+          </Link>
           )}
         </div>
       );
