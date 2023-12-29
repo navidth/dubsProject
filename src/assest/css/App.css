@@ -1,8 +1,9 @@
 @font-face {
   font-family: sans;
-  src: local("sans"), url("../fonts/Sans a4fran3.ttf") format("truetype"),
-  url("../fonts/Sans a4fran3.woff") format("woff"),
-  url("../fonts/Sans a4fran3.eot") format("eot");
+  src: local("sans"), url("../fonts/IRANSansWeb.ttf") format("truetype"),
+  url("../fonts/IRANSansWeb.woff") format("woff"),
+  url("../fonts/IRANSansWeb.eot") format("eot"),
+  url("../fonts/IRANSansWeb.woff2") format("woff2");
 }
 *{
     box-sizing: border-box;
