@@ -4,6 +4,9 @@
     grid-template-columns: repeat(1,1fr);
     margin: 0px auto;
 }
+a{
+    text-decoration: none;
+}
 .information-product{
     display: grid;
     grid-template-columns: repeat(12,1fr);
@@ -103,13 +106,10 @@ li::marker{
 }
 .description-similar{
     width: 100%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
 }
 .description-similar section:nth-child(1) div a:nth-child(1){
     background-color: inherit;
     text-decoration: none;
-    border-top-right-radius: 1rem;
     border: 0;
     text-align: center;
     border-bottom: 2px solid var(--bs-danger);
@@ -123,7 +123,6 @@ li::marker{
     background-color: inherit;
     text-decoration: none;
     text-align: center;
-    border-top-left-radius: 1rem;
     border: 0;
     border-bottom: 2px solid var(--bs-danger);
     border-right: 2px solid var(--bs-danger);
@@ -140,10 +139,29 @@ li::marker{
     padding: 16px 20px;
 }
 .similar-products{
-    background-color: brown;
+    background-color: var(--bs-white);
 
 }
-
+.list-similar-product{
+    width: 70vw;
+    overflow: hidden;
+    overflow-x: scroll;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+} 
+.list-similar-product li{
+    flex-grow: 1;
+    flex-basis: 200;
+}
+.product-similar{
+    width: 14vw;
+}
+.product-similar:hover{
+    transition: 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
 /* media............................................................................................................ */
 
 @media screen and (max-width:910px){

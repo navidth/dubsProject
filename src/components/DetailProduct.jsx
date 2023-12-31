@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import pro from '../assest/images/image2.jpg';
 import { BsBookmark,BsBookmarkFill,BsShare,BsTelegram} from "react-icons/bs";
 import { MdAddShoppingCart } from "react-icons/md";
 import { Tooltip } from 'react-tooltip';
 import ModalImage from "react-modal-image";
+import CardSimilar from './CardSimilar';
+import ButtonScroll from './ButtonScroll';
+import DesceriptionsPreduct from './DesceriptionsPreduct';
 
 const DetailProduct = () => {
+
     const [bookMarks,setBookmarks] = useState(false);
     const [showAlert,setShowAlert] = useState(false);
     const[showMassege,setShowMassege] = useState(false);
@@ -26,14 +30,7 @@ const DetailProduct = () => {
          setShowMassege(false)
         },2000)
     }
-    const[readMe,setReadMe] = useState (false);
-    const readMeBtn = () => {
-        setReadMe(!readMe)
-    }
-    const[changeItems,setChangeItems] = useState(true);
-    const changeItemsFunctions = () =>{
-        setChangeItems(!changeItems)
-    }
+
     return (
         <div className="">
             <div className='detailed-items my-5'>
@@ -200,36 +197,17 @@ const DetailProduct = () => {
                 </div>
             </div>
             {/* description  and similar  product */}
-        <div className="description-similar bg-white rounded-4 my-5">
-            <section>
-                <div className="d-flex justify-content-around">
-                <a href='#one' onClick={changeItemsFunctions} className='px-3 py-2 w-50 fs-4' style={{ background: changeItems ? '#dc3545' : '' , color:changeItems ? '#f8f9fa ' : ''}}>توضیحات</a>
-                <a  href="#two" onClick={changeItemsFunctions} className='px-3 py-2 w-50 fs-4' style={{ background: changeItems ? '' : '#dc3545' , color:changeItems ? ' ' : '#f8f9fa'}}>محصولات مشابه</a >
-                </div>
+        <div className="description-similar my-5">
+            <section style={{position:'sticky', top:'0', zIndex:'20', backgroundColor:'white'}}>
+                <ButtonScroll  headline1 = "توضیحات" headline2="محصولات مشابه"></ButtonScroll>
             </section>
             {/* // desceriptions...........................  */}
-            <div id='one' className="desceriptions">
-           <section className="header-desceription px-3 py-2 mt-3">
-               <h2> معرفی چوب راکت ویسکاریا (Viscaria) </h2>
-            </section>
-            <section>
-                <h4 className='px-4 mx-3 fw-700 letter-spacing'> معرفی کوتاه</h4>
-                {readMe && 
-                <div>
-                   <p id='text' className='p-desceriptions'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                                    </p>
-                </div>
-                }
-                <button type='button' onClick={readMeBtn} className='fs-4 btn btn-readMe btn-danger text-white w-100 mx-auto d-block'>
-                 {readMe ? "مخفی کردن" : "نمایش کامل"}
-                </button>
-            </section>
-           </div> 
-          {/* //    similar product............................... */}
-           <div id='two' className="similar-products">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae tempora, molestiae excepturi sint nobis exercitationem magnam deleniti nemo consectetur aut architecto cum? Velit inventore atque, itaque, consectetur maxime fugit facilis vitae ipsa pariatur sequi laudantium voluptatum cupiditate laboriosam enim aspernatur?</p>
-           </div>
+            <DesceriptionsPreduct id={'one'}></DesceriptionsPreduct>
+            {/* //    similar product............................... */}
+            <CardSimilar id={'two'}></CardSimilar>
         </div>
+            
+           
      </div>
 
             <Tooltip
