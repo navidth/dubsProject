@@ -9,7 +9,15 @@ import { Link } from "react-router-dom";
 import { useRef, useState} from "react";
 import DropdownMenu from "./DropdownMenu";
 import { itemNamesBlades, itemNamesRubbers, Table_Ball, Clothings_Shoes } from './Data';
+import { useContext } from "react";
+import { CartContex  } from "../context/CartContex";
+import CartProduct from "./CartProduct";
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+
 const Navbar = () => {
+  const cart = useContext(CartContex)
+  const productCount = cart.items.reduce((sum, product) => sum + product.quantity , 0)
   //func for items li menu........................................
   const [menuOpen, setMenuOpen] = useState(false);
   function toggleMenu() {
@@ -75,7 +83,12 @@ const Navbar = () => {
   const handleMouseEnterCSleave = () => {
     setIsHoveredCS(false);
   };
-  //Use Ref for TABLET.......................................
+
+  const[showModal, setShowModal] =useState(false);
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  }
+
 
   return(
     <div className="bg-light shadownavbar w-100 w3-animate-opacity w3-container">
@@ -96,7 +109,7 @@ const Navbar = () => {
               ></img>
             </Link>
           </div>
-          {/* <!-- ....login and gift.... --> */}
+          {/* <!-- ....login and buy.... --> */}
           <div class="nav-left mt-3">
             <button
               data-tooltip-id="my-tooltip"
@@ -109,17 +122,39 @@ const Navbar = () => {
                 className="icons icons-search"
               ></BiSearchAlt2>{" "}
             </button>
-            <Link
-              to="/Buy"
+
+            <button
               data-tooltip-id="my-tooltip"
               data-tooltip-content="سبد خرید"
               className="tt btn"
-            >
+              onClick={handleShowModal} >
+              {productCount > 0 ? <span className="badge bg-danger" style={{position:'absolute', left:'88px', top:'10px', opacity:'0.95'}}>{productCount}</span> : null}
               <BsCart3
                 size={"25px"}
                 className="icons bsbuy icons-buy"
               ></BsCart3>
-            </Link>
+            </button>
+            <Modal show={showModal} onHide={handleShowModal}>
+              <Modal.Header closeButton closeVariant="black" className='d-flex'>
+                 <Modal.Title className='mx-auto fs-3 fw-700'>سبد خرید</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                {productCount > 0 ? (<>
+                 {cart.items.map((item,index) =>(
+                  <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
+                   ))}
+                 </>) : (<h3>هیچ خریدی انجام نشده است </h3>)}
+                </Modal.Body>
+              <Modal.Footer className='d-flex justify-content-between'>
+                <Button variant="secondary" onClick={handleShowModal}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={handleShowModal}>
+                  Save Changes
+                </Button>
+             </Modal.Footer>
+            </Modal>
+            {/* login or register */}
             <Link
               to="/login"
               data-tooltip-content="عضویت"
@@ -180,7 +215,7 @@ const Navbar = () => {
                     <AiOutlineArrowLeft size={"18px"} color={'black'}></AiOutlineArrowLeft>
                   </button>
                 </li>
-                <ul className={`dropdown-menu drop-menu ${IshoverBlades || bladesMenu ? 'dropdown-blades ': ''}`}onMouseEnter={handleMouseEnterBlades}
+                <ul className={`dropdown-menu drop-menu ${IshoverBlades || bladesMenu ? 'dropdown-blades ': ''}`} onMouseEnter={handleMouseEnterBlades}
                 onMouseLeave={handleMouseLeaveBlades}
                 onClick={toggleMenu}
                 

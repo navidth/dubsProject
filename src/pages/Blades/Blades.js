@@ -8,8 +8,6 @@ import Sortby from '../../components/Sortby.jsx';
 import CardProduct from '../../components/cardProduct.jsx';
 import Pagination from '../../components/pagination.jsx';
 import ArticleFilter from '../../components/ArticleFilter.jsx';
-import SectionAllPrudoct from '../../components/SectionAllProduct.jsx';
-import SectionProduct from '../../components/SectionProduct.jsx';
 
 const Blades =()=>{
     const[currentPage,setCurrentPage]=useState(1);
@@ -31,14 +29,12 @@ const Blades =()=>{
         <PriceRange></PriceRange>
         </ArticleFilter>
         {/* .................Section Main Product.......... */}
-        <SectionAllPrudoct>
+        <section className='card-prudoct me-5 rounded mb-5'>
          <Header pageName="همه چوب راکت ها" pageNameTwo='همه چوب راکت ها' pageFather={ItemMenu[0]}></Header>
          <Sortby></Sortby>
-         <SectionProduct>
             <CardProduct Item={currentPost}></CardProduct>
             <Pagination PostPerPage={PostPerPage} totalPosts={posts.length} paginate={paginate}></Pagination>
-         </SectionProduct>
-        </SectionAllPrudoct>
+        </section>
     </main>
 
     )

@@ -81,18 +81,72 @@ li::marker{
     display: flex;
     flex-direction: column;
 }
-.button-price {
+.button-price, .prices{
     display: grid;
     grid-template-columns: repeat(12,1fr);
     justify-content: end;
+}
+.buttonCount{
+    display: flex;
+    align-items: center;
+}
+.form button{
+    all: unset;
+}
+.prices div:nth-child(1){
+    grid-column: 1/6;
+}
+.prices div:nth-child(2){
+    grid-column: 6/12;
 }
 .button-price .btn{
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .button-price .btn:hover{
     transition: transform 0.3s;
-    transform: translateY(-5px);
+    transform: translateY(-2px);
 }
+.count{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.form{
+    width: 140px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bs-danger);
+    margin-right: 25px;
+    opacity: 0.9;
+}
+
+.form label {
+    font-size: 30px;
+    font-weight: bolder;
+    flex-grow: 1;
+    text-align: center;
+    color: white;
+}
+.form button:nth-child(1){
+    border-left: 1px solid black;
+    height: 50px;
+    width: 34px;
+    text-align: center;
+    border-top-right-radius: var(--bs-border-radius-xl);
+    border-bottom-right-radius: var(--bs-border-radius-xl);
+}
+.form button:nth-child(3){
+    height: 50px;
+    width: 34px;
+    text-align: center;
+    border-right: 1px solid black;
+    border-top-left-radius: var(--bs-border-radius-xl);
+    border-bottom-left-radius: var(--bs-border-radius-xl);
+}
+
 .btn1{
     width: 204px;
     grid-column: 1/6;
@@ -116,8 +170,8 @@ li::marker{
 }
 .description-similar section:nth-child(1) div a:nth-child(1):hover{
     transition: 0.5s;
-    color: white;
-    background-color: var(--bs-danger);
+    color: balck;
+    background-color:rgb(183, 172, 172);
 }
 .description-similar section:nth-child(1) div a:nth-child(2){
     background-color: inherit;
@@ -129,8 +183,8 @@ li::marker{
 }
 .description-similar section:nth-child(1) div a:nth-child(2):hover{
     transition: 0.5s;
-    color: white;
-    background-color: var(--bs-danger);
+    color: balck;
+    background-color:whitesmoke;
 }
 .p-desceriptions{
     font-size: 18px;

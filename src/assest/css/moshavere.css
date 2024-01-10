@@ -11,16 +11,15 @@
   .card p {
     margin: 0px 10px;
   }
-  .collectionProduct{
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-  }
+ .sectionAllProduct{
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+ }
   .productcard{
-    width: 400px;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 12px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
     cursor: pointer;
-    transition:transform 100ms ease;
+    transition:transform 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;

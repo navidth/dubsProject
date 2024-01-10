@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 const Pagination = ({PostPerPage,totalPosts,paginate}) => {
     const [ActivePage,setAcitvePage] = useState(1);
     const NumberPage = [];
@@ -9,6 +10,7 @@ const Pagination = ({PostPerPage,totalPosts,paginate}) => {
       paginate(page);
       setAcitvePage(page);
     }
+    
   return (
     <div className='mt-5'>
         <ul className="pagination justify-content-center">

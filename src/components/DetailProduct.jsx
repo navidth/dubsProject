@@ -1,18 +1,22 @@
-import React, { useRef, useState } from 'react';
-import pro from '../assest/images/image2.jpg';
+import React, {useState,useContext} from 'react'
 import { BsBookmark,BsBookmarkFill,BsShare,BsTelegram} from "react-icons/bs";
 import { MdAddShoppingCart } from "react-icons/md";
+import { LuPlus, LuMinus  } from "react-icons/lu";
 import { Tooltip } from 'react-tooltip';
 import ModalImage from "react-modal-image";
 import CardSimilar from './CardSimilar';
 import ButtonScroll from './ButtonScroll';
 import DesceriptionsPreduct from './DesceriptionsPreduct';
+import { CartContex  } from "../context/CartContex";
+import { arrayeProduct } from './Data';
+
 
 const DetailProduct = () => {
-
+    const cart = useContext(CartContex)
     const [bookMarks,setBookmarks] = useState(false);
     const [showAlert,setShowAlert] = useState(false);
     const[showMassege,setShowMassege] = useState(false);
+  
     const handleDashbordShare = ()=>{
         setShowAlert(true)
         setTimeout(()=>{
@@ -20,9 +24,11 @@ const DetailProduct = () => {
 
         },1000)
     }
+
     const numberWithCommas = (x) => {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
     const handleDashbordFavorite = ()=>{
         setBookmarks(!bookMarks);
         setShowMassege(true)
@@ -34,29 +40,30 @@ const DetailProduct = () => {
     return (
         <div className="">
             <div className='detailed-items my-5'>
-            <div className="information-product bg-white rounded-4">
+            {arrayeProduct.map((product)=>(
+                <div className="information-product bg-white rounded-4">
                 {/* modal img */}
                 <div className="img-products mt-lg-4">
-                    <img src={pro} alt="product" className='me-3'/>
+                    <img src={product.Image} alt={product.name} className='me-3'/>
                     <div className="modal-img my-4 me-3">
                     <ModalImage 
-                    smallSrcSet={pro}
-                    large={pro}
+                    smallSrcSet={product.Image}
+                    large={product.Image}
                     hideDownload={true}
                     hideZoom={true}
                     showRotate={true}
                     autoFocus={true}
                     />
                     <ModalImage
-                    smallSrcSet={pro}
-                    large={pro}
+                    smallSrcSet={product.Image}
+                    large={product.Image}
                     hideDownload={true}
                     hideZoom={true}
                     showRotate={true}
                     />
                     <ModalImage
-                    smallSrcSet={pro}
-                    large={pro}
+                    smallSrcSet={product.Image}
+                    large={product.Image}
                     hideDownload={true}
                     hideZoom={true}
                     showRotate={true}
@@ -67,7 +74,7 @@ const DetailProduct = () => {
                 <div className="body-product mt-3">
                     <section> 
                         <div className="d-flex justify-content-between align-items-center">
-                            <h4 className='fw-700'>چوب راکت ویسکاریا</h4>
+                            <h4 className='fw-700'>{product.name}</h4>
                             <div className=" d-flex justify-content-center align-items-center">
                                 <BsShare id='dashbord-svg' 
                                  onClick={handleDashbordShare}
@@ -172,15 +179,40 @@ const DetailProduct = () => {
                         </ul> 
                     </section>
                     <section className='pb-4'>
-                        <div className="prices d-flex align-items-baseline text-danger mb-4 mt-2">
-                            <h1 className='px-2 letter-spacing ms-2'>{numberWithCommas(9180000)}</h1> <h6 className='letter-spacing'>تومان </h6>
+                        <div className="prices mb-4 mt-2">
+                            {cart.getProductQuantity(product.id) > 0 ? (                        
+                            <div className="buttonCount">
+                               <form className="form rounded-4">
+                                    <button type='button' className='bg-dark' 
+                                    onClick={()=>{cart.addItemCart(product.id )}}><LuPlus color='white' size={'24px'} />
+                                    </button>
+                                   <label htmlFor="">{cart.getProductQuantity(product.id)}</label>
+                                   <button type='button' className='bg-dark' 
+                                    onClick={()=>{cart.removeItemCart(product.id)}}><LuMinus color='white' size={'24px'}/></button>
+                                    
+                                 </form>
+                            </div>) :( null)}
+                            <div className="priceSection d-flex align-items-baseline text-danger">
+                            <h1 className='px-2 letter-spacing ms-2'>{numberWithCommas(product.price)}</h1> <h6 className='letter-spacing'>تومان </h6>
+                            </div>
                         </div>
                         <div className="button-price">
+                        {cart.getProductQuantity(product.id) > 0 ? (
                             <div className="btn1">
-                            <button type="button" className='btn btn-danger rounded-5 py-3 px-3 d-flex align-items-center'>
-                               <MdAddShoppingCart size={'24px'}></MdAddShoppingCart > <span className='mx-3'>افزودن به سبد خرید</span> 
+                            <button type="button" onClick={()=>cart.deleteItemCart(product.id)} className='btn btn-danger rounded-5 py-3 px-3 d-flex align-items-center'>
+                            <MdAddShoppingCart size={'24px'}></MdAddShoppingCart >
+                             <span className='mx-3'> حذف از سبد خرید</span> 
                             </button>
                             </div>
+                            ):(
+                             <div className="btn1">
+                                <button type="button" onClick={()=>cart.addItemCart(product.id)} className='btn btn-danger rounded-5 py-3 px-3 d-flex align-items-center'>
+                                <MdAddShoppingCart size={'24px'}></MdAddShoppingCart >
+                                 <span className='mx-3'>افزودن به سبد خرید</span> 
+                             </button>
+                             </div>
+                            )
+                            }
                             <div className="btn2 ">
                             <a target="_blank" rel="noopener noreferrer"  href="https://t.me/Navid_th?fbclid=PAAaYPv4EGttqdRmuE9EGoSA6yAUZ8VJkwX0OniF10f5Q0b2iqhQ768Mooc_k" className='btn btn-danger rounded-5 py-3 px-5 d-flex align-items-center'>
                                <BsTelegram size={'24px'}></BsTelegram > <span className='me-3'>مشاوره خرید </span> 
@@ -196,6 +228,7 @@ const DetailProduct = () => {
                     </section>
                 </div>
             </div>
+            ))}
             {/* description  and similar  product */}
         <div className="description-similar my-5">
             <section style={{position:'sticky', top:'0', zIndex:'20', backgroundColor:'white'}}>
