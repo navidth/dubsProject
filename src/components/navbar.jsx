@@ -134,25 +134,38 @@ const Navbar = () => {
                 className="icons bsbuy icons-buy"
               ></BsCart3>
             </button>
+
+            {/* Modal cart */}
             <Modal show={showModal} onHide={handleShowModal}>
+              <div className="w3-light-grey rounded-4">
               <Modal.Header closeButton closeVariant="black" className='d-flex'>
                  <Modal.Title className='mx-auto fs-3 fw-700'>سبد خرید</Modal.Title>
               </Modal.Header>
-              <Modal.Body>
+              <Modal.Body className="">
                 {productCount > 0 ? (<>
                  {cart.items.map((item,index) =>(
-                  <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
+                  <>
+                   <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
+                   <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
+                   <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
+                   <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
+
+                  </>
+                  
                    ))}
                  </>) : (<h3>هیچ خریدی انجام نشده است </h3>)}
                 </Modal.Body>
               <Modal.Footer className='d-flex justify-content-between'>
-                <Button variant="secondary" onClick={handleShowModal}>
-                    Close
-                </Button>
-                <Button variant="primary" onClick={handleShowModal}>
-                  Save Changes
+                <div className="total">
+                  <div className=""><span className="fw-bold">مجموع کل خرید :</span>
+                  <span>{cart.numberWithCommas(cart.getTotalAmount())}</span>
+                  </div>
+                </div>
+                <Button variant="danger" onClick={handleShowModal}>
+                  تایید و ثبت سفارش
                 </Button>
              </Modal.Footer>
+              </div>
             </Modal>
             {/* login or register */}
             <Link

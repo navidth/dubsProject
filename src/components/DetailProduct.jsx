@@ -10,7 +10,6 @@ import DesceriptionsPreduct from './DesceriptionsPreduct';
 import { CartContex  } from "../context/CartContex";
 import { arrayeProduct } from './Data';
 
-
 const DetailProduct = () => {
     const cart = useContext(CartContex)
     const [bookMarks,setBookmarks] = useState(false);

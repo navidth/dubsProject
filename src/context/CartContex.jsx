@@ -48,8 +48,7 @@ export function CartProvaider({children}){
         if(quantity === 1){
             deleteItemCart(id)
         }else{
-        setCartProduct(
-            cartProduct.map((item)=>item.id === id ? 
+        setCartProduct(cartProduct.map((item)=>item.id === id ? 
             {...item, quantity: item.quantity - 1}: item))
     }
     return quantity
@@ -58,7 +57,7 @@ export function CartProvaider({children}){
        let totalAmount = 0
        cartProduct.map((item)=>{
        const productData = getProductData(item.id)
-       totalAmount += productData.price * item.quantity
+       totalAmount += productData.price * item.quantity;
        return totalAmount 
     })
     return totalAmount 

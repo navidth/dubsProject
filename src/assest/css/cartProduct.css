@@ -2,3 +2,44 @@
     padding: calc(var(--bs-modal-header-padding-y) * 0.5) calc(var(--bs-modal-header-padding-x) * 0.5);
     margin: 0 ; 
 }
+.cart-product{
+    background-color:white;
+    padding: 5px 10px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+.img-cart img{
+    width: 60px;
+    height: 60px;
+    max-width: fit-content;
+    max-height: fit-content;
+}
+.img-cart{
+ margin-left: -40px;
+}
+.cart-product li:nth-child(2){
+    padding-left: 0px;
+    margin-left: -20px;
+}
+.cart-product li:nth-child(2) button{
+    all: unset;
+    cursor: pointer;
+    margin:0px 8px;
+    transition: transform 0.5s;
+}
+.cart-product li:nth-child(2) button:hover{
+    transform: translateY(-2px);
+}
+.cart-product li{
+    border-top: 0px;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 2px solid lightgray;
+}
+.cart-product li:nth-child(4) button{
+    all: unset;
+    cursor: pointer;
+}
+.cart-product li:nth-child(4) button:hover{
+    animation: spin 1.4s infinite linear;
+}

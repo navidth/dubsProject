@@ -140,14 +140,17 @@ body{
   }
 .icons:hover{
   font-weight: bolder;
-  animation: spin 0.4s infinite linear;
+  animation: spin 1.4s infinite ease;
 }
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
   50% {
-    transform: rotate(45deg);
+    transform: rotate(20deg);
+  }
+  100%{
+    transform: rotate(-20deg);
   }
 }
 .kanoy{
