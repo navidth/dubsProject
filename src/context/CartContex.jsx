@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { getProductData } from "../components/Data";
 
 export const CartContex = createContext({
     items:[],
@@ -9,12 +8,18 @@ export const CartContex = createContext({
     deleteItemCart: () =>{},
     getTotalAmount: () =>{},
     numberWithCommas: () =>{},
-})
-export function CartProvaider({children}){
-    const[cartProduct,setCartProduct] = useState([])
+    getProductData: () =>{},
 
-    function getProductQuantity(id){
-        const quantity = cartProduct.find((item)=>item.id === id)?.quantity
+})
+export function CartProvaider({children,data}){
+    const[cartProduct,setCartProduct] = useState([])
+    function getProductData(title){
+        let productData = data.find((item)=>item.title === title)
+        return productData
+      }
+
+    function getProductQuantity(title){
+        const quantity = cartProduct.find((item)=>item.title === title)?.quantity
         if(quantity === undefined){
             console.log('zero')
             return 0
@@ -22,33 +27,33 @@ export function CartProvaider({children}){
         return quantity
     }
 
-    function addItemCart(id){
-        const quantity = getProductQuantity(id)
+    function addItemCart(title){
+        const quantity = getProductQuantity(title)
         if(quantity === 0){
-            setCartProduct([...cartProduct, {id: id, quantity: 1}])
+            setCartProduct([...cartProduct, {title: title, quantity: 1}])
         }else{
         setCartProduct(
-            cartProduct.map((item)=>item.id === id ? 
+            cartProduct.map((item)=>item.title === title ? 
             {...item, quantity: item.quantity + 1}: item)
         )
     }
     return quantity
 }
 
-    function deleteItemCart(id){
+    function deleteItemCart(title){
         setCartProduct((cartProduct) =>
         cartProduct.filter((item)=> {
-            return item.id != id
+            return item.title != title
         })
         )
     }
 
-    function removeItemCart(id){
-        const quantity = getProductQuantity(id)
+    function removeItemCart(title){
+        const quantity = getProductQuantity(title)
         if(quantity === 1){
-            deleteItemCart(id)
+            deleteItemCart(title)
         }else{
-        setCartProduct(cartProduct.map((item)=>item.id === id ? 
+        setCartProduct(cartProduct.map((item)=>item.title === title ? 
             {...item, quantity: item.quantity - 1}: item))
     }
     return quantity
@@ -56,7 +61,7 @@ export function CartProvaider({children}){
     function getTotalAmount(){
        let totalAmount = 0
        cartProduct.map((item)=>{
-       const productData = getProductData(item.id)
+       const productData = getProductData(item.title)
        totalAmount += productData.price * item.quantity;
        return totalAmount 
     })
@@ -65,6 +70,7 @@ export function CartProvaider({children}){
     const numberWithCommas = (x) => {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+
    const ContexValue = {
     items:cartProduct,
     getProductQuantity,
@@ -73,7 +79,9 @@ export function CartProvaider({children}){
     deleteItemCart,
     getTotalAmount,
     numberWithCommas,
+    getProductData
    }
+
    return(
     <CartContex.Provider value = {ContexValue}>{children}</CartContex.Provider>
    ) 

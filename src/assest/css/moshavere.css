@@ -24,6 +24,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    height: 255px;
   }
   .productcard:hover{
     transform: translate(0px,-8px);
@@ -40,6 +41,7 @@
   }
   .img-card{
     margin-top: 10px;
+    margin-right: 16px;
   }
   .card-img{
     width: 120px;
@@ -142,13 +144,21 @@
       font-weight: 800;
     }
     /*..................... laptop sm................................................ */
-    @media screen and (max-width:1024.5px){
+    @media screen and (max-width:1184.5px){
       .productcard{
+        height: 371px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
+      .img-card {
+        margin-top: 40px;
+        margin-right: 16px;
+    }
+    .card-img{
+      height: 120px;
+    }
     }
     /*..................... tablet Large............................................ */
     @media screen and (max-width:926px) {

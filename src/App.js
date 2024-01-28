@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import logo from './assest/images/logo/remove bg.png';
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Navbar from './components/navbar';
@@ -6,16 +7,31 @@ import Footer from './components/footer';
 import Bodyhome from './components/BodyHome';
 import Login from './pages/login and buy/Login';
 import Blades from './pages/Blades/Blades';
-import DetailPro from './pages/DetailPro';
+import DetailProduct from './components/DetailProduct';
 import { CartProvaider } from './context/CartContex';
 
 function App () {
   const [isLoading,setIsLoading] = useState(true);
+  const [products, setProduct] = useState([]);
+
+  const fetchData = async () => {
+      try {
+        const response = await axios.get('https://fakestoreapi.com/products');
+        setProduct(response.data);
+        
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+   };
+
   useEffect(()=>{
+    fetchData();
     setTimeout(()=>{
       setIsLoading(false)
     },3000)
-  })
+  },[])
+
+
   if (isLoading) {
     return (
       <div className="preloader container-md" id="preloader">
@@ -30,14 +46,16 @@ function App () {
     );
   } else {
     return (
-      <CartProvaider>
+      <CartProvaider data={products}>
       <Router>
         <Navbar/>
         <Routes>
           <Route index Component={Bodyhome}></Route>
           <Route path='/Login' Component={Login}></Route>
-          <Route path='/blades' Component={Blades}></Route>
-          <Route path='/blades/:name' Component={DetailPro}></Route>
+          <Route path='/blades' element = {<Blades data={products} />} ></Route>
+          <Route path="/blades/:title" element = {<DetailProduct data={products}/>}>
+            
+          </Route>
         </Routes>
         <Footer />
       </Router>

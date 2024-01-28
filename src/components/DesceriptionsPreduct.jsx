@@ -5,22 +5,35 @@ const DesceriptionsPreduct = (props) => {
     const readMeBtn = () => {
         setReadMe(!readMe)
     }
+    
     return (
-        <div id={props.id} className="desceriptions bg-white p-2">
+        <div id={props.id} className="desceriptions bg-white">
+            <section className='headering-desceription bg-danger text-white  btn  w-100 mx-auto py-1'>
+                <h3>
+                    توضیحات
+                </h3>
+            </section>
         <section className="header-desceription px-3 py-3">
-            <h2 > معرفی چوب راکت ویسکاریا (Viscaria) </h2>
+            <h2 > معرفی {props.products.title}</h2>
          </section>
          <section>
-             <h4 className='px-4 mx-3 fw-700 letter-spacing'> معرفی کوتاه</h4>
+             <h4 className='px-4 mx-3 fw-700 letter-spacing text-muted'> معرفی کوتاه</h4>
              {readMe && 
              <div>
-                <p id='text' className='p-desceriptions'>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                                 </p>
+                <p id='text' className='p-desceriptions text-muted'>
+                    {props.products.description}
+                </p>
              </div>
              }
-             <button type='button' onClick={readMeBtn} className='fs-4 btn btn-readMe btn-danger text-white w-100 mx-auto d-block'>
-              {readMe ? "مخفی کردن" : "نمایش کامل"}
-             </button>
+              {props.products.description.length > 400 ? (
+                    <button type='button' onClick={readMeBtn} className='fs-4 btn btn-readMe mx-auto d-block rounded-5 px-5'>
+                        {readMe ? "مخفی کردن" : "نمایش کامل"}
+                    </button>
+                ) : (
+                    <p id='text' className='p-desceriptions text-muted'>
+                    {props.products.description}
+                </p>
+                )}
          </section>
         </div> 
     );

@@ -1,79 +1,86 @@
-import React, {useState,useContext} from 'react'
+import React, {useState,useContext,useEffect} from 'react'
+import { useParams } from 'react-router-dom';
 import { BsBookmark,BsBookmarkFill,BsShare,BsTelegram} from "react-icons/bs";
 import { MdAddShoppingCart } from "react-icons/md";
 import { LuPlus, LuMinus  } from "react-icons/lu";
 import { Tooltip } from 'react-tooltip';
 import ModalImage from "react-modal-image";
 import CardSimilar from './CardSimilar';
-import ButtonScroll from './ButtonScroll';
 import DesceriptionsPreduct from './DesceriptionsPreduct';
 import { CartContex  } from "../context/CartContex";
-import { arrayeProduct } from './Data';
+import '../assest/css/detailed.css'
 
-const DetailProduct = () => {
+function DetailProduct({data}) {
     const cart = useContext(CartContex)
+    const { title } = useParams();
+    let products = data.find(item => item.title === title);
     const [bookMarks,setBookmarks] = useState(false);
     const [showAlert,setShowAlert] = useState(false);
     const[showMassege,setShowMassege] = useState(false);
-  
+    const detailBlades = [
+      {attr :"کشور", value:"ژاپن"},
+      {attr :"سرعت", value:"78"},
+      {attr :"کنترل", value:"95"},
+      {attr :"کلاس", value:"off"},
+      {attr : 'نوع کربن', value:"آرللایت"},
+      {attr :"وزن", value:"90"},
+    ]
     const handleDashbordShare = ()=>{
-        setShowAlert(true)
-        setTimeout(()=>{
-            setShowAlert(false);
+      setShowAlert(true)
+      setTimeout(()=>{
+          setShowAlert(false);
 
-        },1000)
-    }
+      },1000)
+  }
 
-    const numberWithCommas = (x) => {
-        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
+  const numberWithCommas = (x) => {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 
-    const handleDashbordFavorite = ()=>{
-        setBookmarks(!bookMarks);
-        setShowMassege(true)
-        setTimeout(()=>{
-         setShowMassege(false)
-        },2000)
-    }
-
+  const handleDashbordFavorite = ()=>{
+    setBookmarks(!bookMarks);
+    setShowMassege(true)
+    setTimeout(()=>{
+     setShowMassege(false)
+    },2000)} 
+    
     return (
         <div className="">
             <div className='detailed-items my-5'>
-            {arrayeProduct.map((product)=>(
-                <div className="information-product bg-white rounded-4">
+                <div key={products.id} className="information-product bg-white rounded-4">
                 {/* modal img */}
                 <div className="img-products mt-lg-4">
-                    <img src={product.Image} alt={product.name} className='me-3'/>
+                    <img src={products.image} alt={products.title} className='me-3 img-asli'/>
                     <div className="modal-img my-4 me-3">
                     <ModalImage 
-                    smallSrcSet={product.Image}
-                    large={product.Image}
+                    smallSrcSet={products.image}
+                    large={products.image}
                     hideDownload={true}
                     hideZoom={true}
                     showRotate={true}
                     autoFocus={true}
                     />
                     <ModalImage
-                    smallSrcSet={product.Image}
-                    large={product.Image}
+                    smallSrcSet={products.image}
+                    large={products.image}
                     hideDownload={true}
                     hideZoom={true}
                     showRotate={true}
                     />
                     <ModalImage
-                    smallSrcSet={product.Image}
-                    large={product.Image}
+                    smallSrcSet={products.image}
+                    large={products.image}
                     hideDownload={true}
                     hideZoom={true}
                     showRotate={true}
                     />
                     </div>
                 </div>
-                {/* body information product */}
+                {/* body information products */}
                 <div className="body-product mt-3">
                     <section> 
                         <div className="d-flex justify-content-between align-items-center">
-                            <h4 className='fw-700'>{product.name}</h4>
+                            <h4 className='fw-700'>{products.title}</h4>
                             <div className=" d-flex justify-content-center align-items-center">
                                 <BsShare id='dashbord-svg' 
                                  onClick={handleDashbordShare}
@@ -128,84 +135,50 @@ const DetailProduct = () => {
                             </div>
                         <div className="brand">
                         <label htmlFor="brand" className='fw-bold mt-2 ms-2'>برند : </label>
-                        <span id="brand" className=' letter-spacing text-muted'>باترفلای</span>
+                        <span id="brand" className=' letter-spacing text-muted'>{products.category}</span>
                         </div>
                     </section>
                     <section>
                        <ul className='mt-2 p-0 mx-3'>
-                        <li className="py-1">
-                            <div className="inform">
-                                <span className='fw-bold letter-spacing'>کشور : </span>
-                                <span className='text-muted px-4'>ژاپن</span>
-                            </div>
-                        </li>
-                        <li className="py-1">
-                            <div className="inform">
-                               <span className='fw-bold letter-spacing'>سرعت : </span>
-                               <span className='text-muted px-4'>7.8</span>
-                            </div>
-                        </li>
-                        <li className="py-1">
-                            <div className="inform">
-                               <span className='fw-bold letter-spacing'>کنترل : </span>
-                                <span className='text-muted px-4'>8.5</span>
-                            </div>
-                        </li>
-                        <li className="py-1">
-                            <div className="inform">
-                               <span className='fw-bold letter-spacing'>کلاس : </span>
-                                <span className='text-muted px-4'>OFF</span>
-                            </div>
-                        </li>
-                        <li className="py-1">
-                            <div className="inform">
-                               <span className='fw-bold letter-spacing'>لایه ها : </span>
-                                <span className='text-muted px-4'>5+2</span>
-                            </div>
-                        </li>
-                        <li className="py-1">
-                            <div className="inform">
-                               <span className='fw-bold letter-spacing '>نوع کربن : </span>
-                                <span className='text-muted px-4'>آرلایت</span>
-                            </div>
-                        </li>
-                        <li className="py-1">
-                            <div className="inform">
-                               <span className='fw-bold letter-spacing'>وزن : </span>
-                                <span className='text-muted px-4'>90 </span>
-                            </div>
-                        </li>
+                        {detailBlades.map((detail, index)=>(
+                          <li className="py-1" key={index}>
+                               <div className="inform">
+                                   <span className='fw-bold letter-spacing'>{detail.attr} : </span>
+                                   <span className='text-muted px-4'> {detail.value} </span>
+                               </div>
+                           </li>
+                        ))}
                         </ul> 
                     </section>
                     <section className='pb-4'>
                         <div className="prices mb-4 mt-2">
-                            {cart.getProductQuantity(product.id) > 0 ? (                        
+                            {cart.getProductQuantity(products.title) > 0 ? (                        
                             <div className="buttonCount">
                                <form className="form rounded-4">
                                     <button type='button' className='bg-dark' 
-                                    onClick={()=>{cart.addItemCart(product.id )}}><LuPlus color='white' size={'24px'} />
+                                    onClick={()=>{cart.addItemCart(products.title )}}><LuPlus color='white' size={'24px'} />
                                     </button>
-                                   <label htmlFor="">{cart.getProductQuantity(product.id)}</label>
+                                   <label htmlFor="">{cart.getProductQuantity(products.title)}</label>
                                    <button type='button' className='bg-dark' 
-                                    onClick={()=>{cart.removeItemCart(product.id)}}><LuMinus color='white' size={'24px'}/></button>
+                                    onClick={()=>{cart.removeItemCart(products.title)}}><LuMinus color='white' size={'24px'}/></button>
                                     
                                  </form>
                             </div>) :( null)}
                             <div className="priceSection d-flex align-items-baseline text-danger">
-                            <h1 className='px-2 letter-spacing ms-2'>{numberWithCommas(product.price)}</h1> <h6 className='letter-spacing'>تومان </h6>
+                            <h1 className='px-2 letter-spacing ms-2'>{numberWithCommas(products.price)}</h1> <h6 className='letter-spacing'>تومان </h6>
                             </div>
                         </div>
                         <div className="button-price">
-                        {cart.getProductQuantity(product.id) > 0 ? (
+                        {cart.getProductQuantity(products.title) > 0 ? (
                             <div className="btn1">
-                            <button type="button" onClick={()=>cart.deleteItemCart(product.id)} className='btn btn-danger rounded-5 py-3 px-3 d-flex align-items-center'>
+                            <button type="button" onClick={()=>cart.deleteItemCart(products.title)} className='btn btn-danger rounded-5 py-3 px-3 d-flex align-items-center'>
                             <MdAddShoppingCart size={'24px'}></MdAddShoppingCart >
                              <span className='mx-3'> حذف از سبد خرید</span> 
                             </button>
                             </div>
                             ):(
                              <div className="btn1">
-                                <button type="button" onClick={()=>cart.addItemCart(product.id)} className='btn btn-danger rounded-5 py-3 px-3 d-flex align-items-center'>
+                                <button type="button" onClick={()=>cart.addItemCart(products.title)} className='btn btn-danger rounded-5 py-3 px-3 d-flex align-items-center'>
                                 <MdAddShoppingCart size={'24px'}></MdAddShoppingCart >
                                  <span className='mx-3'>افزودن به سبد خرید</span> 
                              </button>
@@ -227,19 +200,14 @@ const DetailProduct = () => {
                     </section>
                 </div>
             </div>
-            ))}
+
             {/* description  and similar  product */}
         <div className="description-similar my-5">
-            <section style={{position:'sticky', top:'0', zIndex:'20', backgroundColor:'white'}}>
-                <ButtonScroll  headline1 = "توضیحات" headline2="محصولات مشابه"></ButtonScroll>
-            </section>
             {/* // desceriptions...........................  */}
-            <DesceriptionsPreduct id={'one'}></DesceriptionsPreduct>
+            <DesceriptionsPreduct id={'one'} products={products} ></DesceriptionsPreduct>
             {/* //    similar product............................... */}
-            <CardSimilar id={'two'}></CardSimilar>
-        </div>
-            
-           
+            <CardSimilar products={data}></CardSimilar>
+        </div>     
      </div>
 
             <Tooltip
@@ -257,7 +225,7 @@ const DetailProduct = () => {
         }}>
             </Tooltip>
         </div>
-    );
+  )
 }
 
-export default DetailProduct;
+export default DetailProduct

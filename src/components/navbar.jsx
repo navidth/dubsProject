@@ -145,11 +145,7 @@ const Navbar = () => {
                 {productCount > 0 ? (<>
                  {cart.items.map((item,index) =>(
                   <>
-                   <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
-                   <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
-                   <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
-                   <CartProduct key={index} id={item.id} quantity={item.quantity}></CartProduct>
-
+                   <CartProduct key={index} title={item.title} quantity={item.quantity}></CartProduct>
                   </>
                   
                    ))}
