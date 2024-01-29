@@ -91,7 +91,7 @@ const Navbar = () => {
 
 
   return(
-    <div className="bg-light shadownavbar w-100 w3-animate-opacity w3-container">
+    <div className="bg-dark shadownavbar w-100 w3-animate-opacity w3-container">
       <div className="justify-content-center align-items-center">
         {/* top navbar */}
         <div className=" d-flex justify-content-between navbartop">
