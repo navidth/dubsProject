@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/dubsProject/static/css/main.5514d784.css",
+    "main.js": "/dubsProject/static/js/main.989dc470.js",
+    "static/js/787.28cb0dcd.chunk.js": "/dubsProject/static/js/787.28cb0dcd.chunk.js",
+    "static/media/kanoy.png": "/dubsProject/static/media/kanoy.61216922f15165a3e8dc.png",
+    "static/media/Hero_Teaser_wide_2545_x_975_Kollektion_2023.jpg": "/dubsProject/static/media/Hero_Teaser_wide_2545_x_975_Kollektion_2023.562020bad75c34bee881.jpg",
+    "static/media/cleaner.jpg": "/dubsProject/static/media/cleaner.f37fd99429f0a9624097.jpg",
+    "static/media/Sans a4fran3.eot": "/dubsProject/static/media/Sans a4fran3.719be0553812c4467775.eot",
+    "static/media/Sans a4fran3.ttf": "/dubsProject/static/media/Sans a4fran3.b405362106aecf6bb79b.ttf",
+    "static/media/Sans a4fran3.woff": "/dubsProject/static/media/Sans a4fran3.89ca84830aac0d525315.woff",
+    "static/media/IRANSansWeb.eot": "/dubsProject/static/media/IRANSansWeb.96c836c332e8f8d83979.eot",
+    "static/media/IRANSansWeb.ttf": "/dubsProject/static/media/IRANSansWeb.cfda181b49ac22fb9f4a.ttf",
+    "static/media/slideshow.jpg": "/dubsProject/static/media/slideshow.f178bd2f8733f241f54f.jpg",
+    "static/media/soessgewo.jpg": "/dubsProject/static/media/soessgewo.7e2d6b25c6d009588f29.jpg",
+    "static/media/gewo rubbers.jpg": "/dubsProject/static/media/gewo rubbers.eb67c2c4751d84d5331e.jpg",
+    "static/media/IRANSansWeb.woff": "/dubsProject/static/media/IRANSansWeb.4f3bc2683ce6d8e34dd7.woff",
+    "static/media/viscaria.webp": "/dubsProject/static/media/viscaria.2960a9cec6aef948f5d6.webp",
+    "static/media/timoboll baleds.webp": "/dubsProject/static/media/timoboll baleds.a8d2e0c37b4e85a89874.webp",
+    "static/media/IRANSansWeb.woff2": "/dubsProject/static/media/IRANSansWeb.4c7ce8a145e6fc70c711.woff2",
+    "static/media/3er_Grid_1er_Seite_V2-Ovtcharov_H_lzer.webp": "/dubsProject/static/media/3er_Grid_1er_Seite_V2-Ovtcharov_H_lzer.2bd408a2d4ab4efdbdef.webp",
+    "static/media/image2.jpg": "/dubsProject/static/media/image2.93a69f11c13c80943f0e.jpg",
+    "static/media/jpg": "/dubsProject/static/media/dcd479810e3d4487995d4e705dd1d6e9.143b4978efc0873ce836.jpg",
+    "static/media/balls.jpg": "/dubsProject/static/media/balls.596a882d0133298f7d38.jpg",
+    "index.html": "/dubsProject/index.html",
+    "main.5514d784.css.map": "/dubsProject/static/css/main.5514d784.css.map",
+    "main.989dc470.js.map": "/dubsProject/static/js/main.989dc470.js.map",
+    "787.28cb0dcd.chunk.js.map": "/dubsProject/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5514d784.css",
+    "static/js/main.989dc470.js"
+  ]
+}
